@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-app-demo
+  name: sample-app
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      bb: web
+      sample-app: web
   template:
     metadata:
       labels:
-        bb: web
+        sample-app: web
     spec:
       containers:
-      - name: bb-site
+      - name: sample-app
         image: subhayandsgpt/sample_app
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: bb-entrypoint
+  name: sample-app-entrypoint
   namespace: default
 spec:
   type: NodePort

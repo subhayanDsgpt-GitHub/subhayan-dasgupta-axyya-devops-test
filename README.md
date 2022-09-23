@@ -20,4 +20,12 @@ Following steps are followed during containerization:
 ## Deploying the prebuilt image into Kubernetes
 
 Following steps are followed during deploying into Kubernetes:
-- To store the prebuild image of the sample_app, DockerHub (subhayandsgpt/sample_app)[https://hub.docker.com/repository/docker/subhayandsgpt/sample_app] has been used.
+- To store the prebuild image of the sample_app, DockerHub [subhayandsgpt/sample_app](https://hub.docker.com/repository/docker/subhayandsgpt/sample_app) has been used.
+- Kubernetes YAML file has been created to describe sample_app.
+- To deploy the image of the sample_app onto Kubernetes, following commands are run on the terminal
+    - kubectl apply -f <file_name>.yaml
+    - kubectl get deployments
+    - kubectl get services
+
+
+## 
