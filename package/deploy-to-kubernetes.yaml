@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample_app
+  name: sample-app-demo
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      sample_app: web
+      bb: web
   template:
     metadata:
       labels:
-        sample_app: web
+        bb: web
     spec:
       containers:
-      - name: sample_app_site
+      - name: bb-site
         image: subhayandsgpt/sample_app
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: sample_app_entrypoint
+  name: bb-entrypoint
   namespace: default
 spec:
   type: NodePort
   selector:
-    sample_app: web
+    bb: web
   ports:
-  - port: 8080
-    targetPort: 8080
+  - port: 3000
+    targetPort: 3000
     nodePort: 30001
