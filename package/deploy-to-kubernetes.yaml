@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample_app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      sample_app: web
+  template:
+    metadata:
+      labels:
+        sample_app: web
+    spec:
+      containers:
+      - name: sample_app_site
+        image: subhayandsgpt/sample_app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample_app_entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    sample_app: web
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30001
