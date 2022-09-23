@@ -17,7 +17,7 @@ Following steps are followed during containerization:
     - curl -i localhost:49160
 
 
-## Deploying the prebuilt image into Kubernetes
+## Deploying the prebuilt image into Kubernetes using Jenkins
 
 Following steps are followed during deploying into Kubernetes:
 - To store the prebuild image of the sample_app, DockerHub [subhayandsgpt/sample_app](https://hub.docker.com/repository/docker/subhayandsgpt/sample_app) has been used.
@@ -27,5 +27,11 @@ Following steps are followed during deploying into Kubernetes:
     - kubectl get deployments
     - kubectl get services
 
+- Jenkinsfile has been created to deploy the pipeline that will deploy the specific sample_app onto kubernetes.
 
-## 
+
+## Creation of ingress rule for the k8s to expose the endpoints of sample_app to the internet
+
+- Ingress: Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource.
+    - The Ingress resource is used to deploy an Ingress controller such as "ingress-nginx"
+    - Name based virtual hosting is used to Name-based virtual hosts support routing HTTP traffic to multiple host names at the same IP address.
